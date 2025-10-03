@@ -2,14 +2,17 @@ def load_tasks():
    try:
      with open("tasks.txt") as fin:
       while(task:= fin.readline()):
-       tasks.append(task)
-   except Exception as e:
-     print(e)
+       tasks.append(task.strip())
+   except:    # For first time File not Found return nothing
+     return
 
 def save_tasks():
-  with open("tasks.txt",'w') as fout:
-    for task in tasks:
-      fout.write(task)
+  try:
+    with open("tasks.txt",'w') as fout:
+     for task in tasks:
+      fout.write(task + "\n")
+  except Exception as e:
+    print(e)
 
       
 def add_task():
@@ -47,6 +50,7 @@ def clear_tasks():
 print("\n\t \t **** To-Do-List ****")
 
 tasks=[]
+load_tasks()
 
 while(True):
     print('\n')
