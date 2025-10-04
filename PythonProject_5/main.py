@@ -17,8 +17,12 @@ def save_tasks():
       
 def add_task():
     task=input("Enter Your task: ")
-    if(task in tasks):
+    # if(task in tasks):
+    #     print("Already Exists!")
+    for t in tasks:
+      if(t.lower()==task.lower()):
         print("Already Exists!")
+        return
     else:
      tasks.append(task)
      print("Successfully Added.")
@@ -33,9 +37,14 @@ def remove_task():
     if(tasks):
       show_tasks()
       task=input("Enter task to remove:- ")
-      if(task in tasks):
-       tasks.remove(task)
-       print("Successfully Removed.")
+      # if(task in tasks):
+      #  tasks.remove(task)
+      #  print("Successfully Removed.")
+      for t in tasks:
+        if(t.lower()==task.lower()):
+          tasks.remove(t)
+          print("Successfully Removed.")
+          return
       else:
        print("Task Does Not Exist.")
     else:
