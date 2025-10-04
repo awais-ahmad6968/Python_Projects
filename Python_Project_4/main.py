@@ -3,7 +3,7 @@ import pyaudio
 import pyttsx3
 import webbrowser
 import library
-import os
+# import os    # for os.startfile("filename")
 # import google.generativeai as genai
 import gemini_client
 
